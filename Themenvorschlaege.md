@@ -16,7 +16,7 @@
 
 ## Agenda (vorläufig)
 * Was ist funktionale Programmierung?
- * Programmieren mit Funktionen / Was sind Seiteneffekte
+ * Programmieren mit Funktionen / Was sind Seiteneffekte (lokale Seiteneffekte sind erlaubt!)
  * Motivation / Was sind die Vorteile
  * Referenzielle Transparenz
 * Fehlerbehandlung ohne Exceptions
