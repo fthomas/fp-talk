@@ -20,5 +20,6 @@ scalacOptions ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "com.nicta" %% "rng" % "1.3.0"
+  "com.nicta" %% "rng" % "1.3.0",
+  "org.scalaz" %% "scalaz-effect" % "7.1.1"
 )
