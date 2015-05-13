@@ -82,10 +82,70 @@
                 => Effekte werden in einen äußeren Layer geschoben (mehr dazu später)
             </p>
         </section>
+          <section>
+              <h4>Formal: Referenzielle Transparenz</h4>
+              <p>
+              An expression e is referentially transparent if, for all programs p, all occurrences of e
+              in p can be replaced by the result of evaluating e without affecting the meaning of p.
+              A function f is pure if the expression f(x) is referentially transparent for all referentially
+              transparent x
+              </p>
+          </section>
+          <section>
+              <h4>Bsp. 1 (nicht referenziell transparent):</h4>
+              <p>
+              <code>
+                  <pre>
+              x = new StringBuilder("Hello")
+              r1 = x.append(" World")
+              r2 = x.append(" World")
+               </pre>
+              </code>
 
-        <section>
+              Ist StringBuilder#append referentiell transparent?<br/>
+              => r1 == "Hello World", r2 == "Hello World World"
+              </p>
+          </section>
+
+          <section>
+              <h4>Bsp. 2 (referenziell transparent):</h4>
+              <p>
+                  <code>
+                      <pre>
+                  def hello(name: String) = new StringBuilder("Hello ")
+                    .append(name)
+                    .append("!")
+                    .toString
+                          </pre>
+                  </code>
+                  Ist methode "hello(...)" referenziell transparent? <br/>
+                  => ja, da von außen beobachtet kein Effekt passiert <br/>
+                  => wie sieht es aus, wenn man einen StringBuilder statt einem String übergibt? <br/>
+              </p>
+          </section>
+
+          <section>
+              <h4>Was sind die Vorteile funktionaler Programmierung?</h4>
+              <ul>
+                <li>Designvorteile durch separation of concerns</li>
+                <li>einfach zu testen</li>
+                <li>einfach zu parallelisieren</li>
+                <li>einfach zu parallelisieren</li>
+              </ul>
+          </section>
+
+          <section>
+              <h4>Was sind die Nachteile?</h4>
+              <ul>
+                  <li>Paradigmenwechsel erfordert ein Umdenken</li>
+              </ul>
+          </section>
+
+          <section>
           <h2>Fehlerbehandlung ohne Exceptions</h2>
         </section>
+
+
 
         <section style="text-align: left;">
           <h1>THE END</h1>
