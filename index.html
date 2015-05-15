@@ -192,17 +192,18 @@ Inhalt:
 
         <section>
           <h3>Idee: Fehler oder Ausnahmen als Werte repräsentieren</h3>
-          <p>=> Option[T] und Either[A, B]</p>
+          <p>=> <code>Option[T]</code> und <code>Either[A, B]</code></p>
         </section>
 
         <section>
           <h3>Option[T]</h3>
           <p>
-            Beinhaltet einen Wert vom Typ T oder nicht. Wie eine Liste mit maximal einem Element.
+            Beinhaltet einen Wert vom Typ <code>T</code> oder nicht.
+            Wie eine Liste mit maximal einem Element.
           </p>
           <p>
             <br />
-            Besser als <span class="mycode">null</span> <code>null</code>, weil
+            Besser als <code>null</code>, weil
             <ul>
               <li>der Typ dokumentiert, dass kein Wert da sein kann</li>
               <li>Fehlerbehandlung zusammengefasst werden kann</li>
