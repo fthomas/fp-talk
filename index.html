@@ -260,6 +260,9 @@ Inhalt:
 
         <section>
           <h3>Either[A, B]</h3>
+          <p>Ist entweder ein <code>A</code> oder ein <code>B</code>.</p>
+          <p class="fragment">Vorteil gegenüber <code>Option</code>: Fehlerursache kann zurückgegeben werden</p>
+          <pre><code>def safeToInt(s: String): Either[NumberFormatException, Int] = ...</code></pre>
         </section>
 
         <section style="text-align: left;">
