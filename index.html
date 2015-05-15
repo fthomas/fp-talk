@@ -159,15 +159,26 @@
           <section>
           <h2>Fehlerbehandlung ohne Exceptions</h2>
         </section>
-        
 
-        
         <section>
           <h3>Alternativen zu Exceptions</h3>
           <ul>
             <li>Fehler oder Ausnahmen als Werte repräsentieren</li>
-            <li></li>
           </ul>
+        </section>
+
+        <section>
+          <h3>Option[T] (oder Optional&lt;T&gt; in Java 8)</h3>
+          <p>
+            Beinhaltet einen Wert vom Typ T oder nicht. Wie eine Liste mit maximal einem Element.
+          </p>
+            Besser als <code>null</code>, weil
+          <p>
+          <ul>
+            <li>da der Typ Dokumentation ist</li>
+            <li>Option Methoden zum Kombinieren mehrerer Options hat</li>
+          </ul>
+          </p>
         </section>
 
         <section>
@@ -189,11 +200,19 @@
 
         <section>
           <pre><code>
-            val m1: Map[String, Integer] = ...
-            val m2: Map[String, Integer] = ...
+            val m1: Map[String, Int] = ...
+            val m2: Map[String, Int] = ...
             
             val key = "two"
+            val result: Option[Int] = for {
+              v1 <- m1.get(key)
+              v2 <- m2.get(key)
+            } yield v1 + v2
           </code></pre>
+        </section>
+
+        <section>
+          <h3>Either[A, B]</h3>
         </section>
 
         <section style="text-align: left;">
