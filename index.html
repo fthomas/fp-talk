@@ -201,7 +201,7 @@ Inhalt:
             Beinhaltet einen Wert vom Typ <code>T</code> oder nicht.
             Wie eine Liste mit maximal einem Element.
           </p>
-          <p>
+          <p class="fragment">
             <br />
             Besser als <code>null</code>, weil
             <ul>
@@ -247,11 +247,11 @@ Inhalt:
 
         <section>
           <h3>Fehlerbehandlung verzögern</h3>
-          <pre><code>    val x: Option[Int] = ...
+          <pre><code>   val x: Option[Int] = ...
     val res: Int = x.map(i => i + 2)
                     .filter(i => i < 10)
                     .getOrElse(42)</code></pre>
-          <p>
+          <p class="fragment">
             An geeigneter Stelle kann entschieden werden wie mit einem
             nicht vorhandenen Wert umgegangen werden soll.
           </p>
