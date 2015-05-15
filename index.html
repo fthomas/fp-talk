@@ -156,15 +156,36 @@
               </ul>
           </section>
 
-          <section>
+<!--
+Inhalt:
+  - Warum sind Exceptions ein Problem?
+  - Was gibt es für Alternativen?
+  - Option + Beispiel
+  - Either + Beispiel
+-->
+
+        <section>
           <h2>Fehlerbehandlung ohne Exceptions</h2>
         </section>
 
         <section>
-          <h3>Alternativen zu Exceptions</h3>
-          <ul>
-            <li>Fehler oder Ausnahmen als Werte repräsentieren</li>
-          </ul>
+          <h3>Probleme mit Exceptions</h3>
+          <p>
+            Exceptions sind kontextsensitiv:
+            <pre><code>
+              def x = throw new Exception
+              val y = try {
+                x
+              } catch {
+                _: Exception => 42
+              }
+            </code></pre>
+          </p>
+        </section>
+
+        <section>
+          <h3>Idee: Fehler oder Ausnahmen als Werte repräsentieren</h3>
+          <p> => Option[T] und Either[A, B]</p>
         </section>
 
         <section>
