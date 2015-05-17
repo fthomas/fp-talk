@@ -273,7 +273,27 @@ Inhalt:
           <h3>Beispiel Zufallszahlen</h3>
           <p>Idee: Datentyp einführen, der den Kontext Zufälligkeit repräsentiert</p>
           <p><code>Rng[T]</code></p>
-          <p class="fragment">Analog zu <code>Option</code>: Kontext ist mögliche Fehlen eines Wertes</p>
+          <p class="fragment">Analog zu <code>Option[T]</code>: Kontext ist mögliche Fehlen eines Wertes</p>
+        </section>
+
+        <section>
+          <h3>Zufallszahlen mit Rng</h3>
+          <ul>
+            <li><code>Rng[Double]</code> repräsentiert einen zufälligen <code>Double</code></li>
+            <li>
+              <code>val d1 = Rng.double</code> und
+              <code>val d2 = Rng.double</code> sind gleichbedeutend
+            </li>
+            <li>
+              Auf <code>Rng</code>-Werten können Funktionen ausgeführt werden:
+              <pre>
+                <code>
+                  val positiveDouble: Rng[Double] =
+                    Rng.double.map(d => if (d < 0) -d else d)
+                </code>
+              </pre>
+            </li>
+          </ul>
         </section>
 
         <section style="text-align: left;">
