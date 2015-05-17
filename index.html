@@ -284,16 +284,15 @@ Inhalt:
               <code>val d1 = Rng.double</code> und
               <code>val d2 = Rng.double</code> sind gleichbedeutend
             </li>
-            <li>
-              Auf <code>Rng</code>-Werten können Funktionen ausgeführt werden:
-              <pre>
-                <code>
-                  val positiveDouble: Rng[Double] =
-                    Rng.double.map(d => if (d < 0) -d else d)
-                </code>
-              </pre>
-            </li>
           </ul>
+          
+          <p>Auf <code>Rng</code>-Werten können Funktionen ausgeführt werden:</p>
+          <pre>
+            <code>
+              val positiveDouble: Rng[Double] =
+                Rng.double.map(d => if (d < 0) -d else d)
+            </code>
+          </pre>
         </section>
 
         <section style="text-align: left;">
@@ -301,7 +300,7 @@ Inhalt:
           <p>
             - Slides: <a href="http://fthomas.github.io/fp-talk">http://fthomas.github.io/fp-talk</a><br />
             - Code: <a href="https://github.com/fthomas/fp-talk">https://github.com/fthomas/fp-talk</a><br />
-            - <a href="http://www.manning.com/bjarnason/">Functional Programming in Scala</a>
+            - <a href="http://www.manning.com/bjarnason/">Functional Programming in Scala</a><br />
             - <code>Rng</code>: <a href="https://github.com/NICTA/rng">https://github.com/NICTA/rng</a>
           </p>
         </section>
