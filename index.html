@@ -278,21 +278,20 @@ Inhalt:
 
         <section>
           <h3>Zufallszahlen mit Rng</h3>
-          <ul>
-            <li><code>Rng[Double]</code> repräsentiert einen zufälligen <code>Double</code></li>
-            <li>
-              <code>val d1 = Rng.double</code> und
-              <code>val d2 = Rng.double</code> sind gleichbedeutend
-            </li>
-          </ul>
-          
+          <p><code>Rng[Double]</code> repräsentiert einen zufälligen <code>Double</code></p>
+
+          <pre class="fragment"><code>
+            val d1 = Rng.double // und
+            val d2 = Rng.double // sind gleichbedeutend
+          </code></pre>
+
+          <div class="fragment">
           <p>Auf <code>Rng</code>-Werten können Funktionen ausgeführt werden:</p>
-          <pre>
-            <code>
-              val positiveDouble: Rng[Double] =
-                Rng.double.map(d => if (d < 0) -d else d)
-            </code>
-          </pre>
+          <pre><code>
+            val positiveDouble: Rng[Double] =
+              Rng.double.map(d => if (d < 0) -d else d)
+          </code></pre>
+          </div>
         </section>
 
         <section style="text-align: left;">
