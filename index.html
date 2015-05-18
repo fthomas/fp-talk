@@ -98,11 +98,6 @@
                     zu jeder Zeit das gleiche Ergebnis</li>
                 <li>einfaches Bsp. "plus"-Funktion: 1 + 2 ergibt immer 3 </li>
             </ul>
-
-            <p>
-                <h4>Und die Außenwelt?</h4>
-                => Effekte werden in einen äußeren Layer geschoben (mehr dazu später)
-            </p>
         </section>
           <section>
               <h4>Formal: Referenzielle Transparenz</h4>
@@ -145,22 +140,27 @@
                   => wie sieht es aus, wenn man einen StringBuilder statt einem String übergibt? <br/>
               </p>
           </section>
-
           <section>
-              <h4>Was sind die Vorteile funktionaler Programmierung?</h4>
+              <h4>Und die Außenwelt?</h4>
               <ul>
-                <li>Designvorteile durch separation of concerns</li>
-                <li>einfach zu testen</li>
-                <li>einfach zu parallelisieren</li>
-                <li>einfach zu parallelisieren</li>
+                  <li>Effekte werden in einen äußeren Layer geschoben (mehr dazu später)</li>
+                  <li>Effekte werden explizit gemacht und passieren nicht implizit in der Businesslogik</li>
+                  <li>die Businesslogik bleibt somit frei von Effekten bzw. technischen Belangen</li>
+                  <!--</ul>-->
+                  <br/>
+                  <li>"Spring" verspricht das Gleiche. Hält es sein Versprechen?</li>
               </ul>
-          </section>
-
-          <section>
-              <h4>Was sind die Nachteile?</h4>
-              <ul>
-                  <li>Paradigmenwechsel erfordert ein Umdenken</li>
-              </ul>
+              <code>
+                <pre>
+  <font color="red">
+      @Singleton
+      @Transactional
+      @VentoTechnicalExceptionHandling</font>
+      public class TransformationServiceImpl implements ... {
+        ...
+      }
+                </pre>
+              </code>
           </section>
 
 <!--
@@ -293,6 +293,23 @@ Inhalt:
             </code></pre>
           </div>
         </section>
+
+          <section>
+              <h4>Was sind die Vorteile funktionaler Programmierung?</h4>
+              <ul>
+                  <li>Designvorteile durch separation of concerns</li>
+                  <li>einfach zu testen</li>
+                  <li>einfach zu parallelisieren</li>
+                  <li>...</li>
+              </ul>
+          </section>
+
+          <section>
+              <h4>Was sind die Nachteile?</h4>
+              <ul>
+                  <li>Paradigmenwechsel erfordert ein Umdenken</li>
+              </ul>
+          </section>
 
         <section style="text-align: left;">
           <h1>THE END</h1>
