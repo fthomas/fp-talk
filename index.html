@@ -70,17 +70,22 @@
           </ol>
         </section>
 
-        <section>
-          <p>
-            Eine Funktion A => B bildet <i>jeden</i> Wert vom Typ A
-            auf <i>genau</i> einen Wert vom Typ B ab.
-          </p>
-          <p>
-            <br/>
-            Und mehr nicht.
-          </p>
-        </section>
 
+
+        <section>
+            <h2>Was ist funktionale Programmierung?</h2>
+        </section>
+          <section>
+              <h4>Was ist eine Funktion?</h4>
+              <p>
+                  Eine Funktion A => B bildet <i>jeden</i> Wert vom Typ A
+                  auf <i>genau</i> einen Wert vom Typ B ab.
+              </p>
+              <p>
+                  <br/>
+                  Und mehr nicht.
+              </p>
+          </section>
         <section>
             <h2>Funktionale Programmierung = keine Seiteneffekte</h2>
             <ul>
@@ -90,26 +95,26 @@
             </ul>
         </section>
           <section>
-            <h2>Praktisch bedeutet das:</h2>
+              <h4>Formal: Referenzielle Transparenz</h4>
+              <p>
+                  An expression <b>e</b> is referentially transparent if, for all programs <b>p</b>, all occurrences of <b>e</b>
+                  in <b>p</b> can be replaced by the result of evaluating <b>e</b> without affecting the meaning of <b>p</b>.
+                  A function f is pure if the expression f(x) is referentially transparent for all referentially
+                  transparent x
+              </p>
+          </section>
+          <section>
+            <h4>Praktisch bedeutet das:</h4>
             <ul>
-                <li>"pure" Funktionen als Anwendungskern</li>
-                <li>d.h. der Rückgabewert einer Funktion hängt einzig von ihren Parameterwerten ab</li>
+                <li>der Rückgabewert einer Funktion hängt einzig von ihren Parameterwerten ab</li>
                 <li>somit liefert jeder Aufruf einer Funktion mit den gleichen Parameterwerten
                     zu jeder Zeit das gleiche Ergebnis</li>
+                <li>Voraussetzung: die Parameter sind ebenfalls referenziell Transparent</li>
                 <li>einfaches Bsp. "plus"-Funktion: 1 + 2 ergibt immer 3 </li>
             </ul>
         </section>
           <section>
-              <h4>Formal: Referenzielle Transparenz</h4>
-              <p>
-              An expression <b>e</b> is referentially transparent if, for all programs <b>p</b>, all occurrences of <b>e</b>
-              in <b>p</b> can be replaced by the result of evaluating <b>e</b> without affecting the meaning of <b>p</b>.
-              A function f is pure if the expression f(x) is referentially transparent for all referentially
-              transparent x
-              </p>
-          </section>
-          <section>
-              <h4>Bsp. 1 (nicht referenziell transparent):</h4>
+              <h4>Bsp. 1</h4>
               <p>
               <code>
                   <pre>
@@ -118,14 +123,23 @@
               r2 = x.append(" World")
                </pre>
               </code>
-
-              Ist StringBuilder#append referentiell transparent?<br/>
-              => r1 == "Hello World", r2 == "Hello World World"
+              Ist StringBuilder#append referentiell transparent?
               </p>
           </section>
-
           <section>
-              <h4>Bsp. 2 (referenziell transparent):</h4>
+              <h4>Bsp. 1</h4>
+              <p>
+                  <code>
+                  <pre>
+              r1 == "Hello World"
+              r2 == "Hello World World"
+               </pre>
+                  </code>
+                  => nicht referenziell transparent
+              </p>
+          </section>
+          <section>
+              <h4>Bsp. 2</h4>
               <p>
                   <code>
                       <pre>
@@ -135,34 +149,25 @@
                     .toString
                           </pre>
                   </code>
-                  Ist methode "hello(...)" referenziell transparent? <br/>
-                  => ja, da von außen beobachtet kein Effekt passiert <br/>
-                  => wie sieht es aus, wenn man einen StringBuilder statt einem String übergibt? <br/>
+                  Ist "hello(...)" referenziell transparent?
+              </p>
+          </section>
+          <section>
+              <h4>Bsp. 2</h4>
+              <p>
+                  => ja, da von außen beobachtet kein Effekt auftritt <br/>
+                  => der Parameter vom Typ String ist ebenfalls referenziell transparent <br/>
               </p>
           </section>
           <section>
               <h4>Und die Außenwelt?</h4>
               <ul>
-                  <li>Effekte werden in einen äußeren Layer geschoben (mehr dazu später)</li>
-                  <li>Effekte werden explizit gemacht und passieren nicht implizit in der Businesslogik</li>
+                  <li>"pure" Funktionen als Anwendungskern</li>
+                  <li>Effekte werden in einen äußeren Layer geschoben</li>
+                  <li>Effekte werden explizit gemacht und treten nicht implizit in der Businesslogik auf</li>
                   <li>die Businesslogik bleibt somit frei von Effekten bzw. technischen Belangen</li>
-                  <!--</ul>-->
-                  <br/>
-                  <li>"Spring" verspricht das Gleiche. Hält es sein Versprechen?</li>
               </ul>
-              <code>
-                <pre>
-  <font color="red">
-      @Singleton
-      @Transactional
-      @VentoTechnicalExceptionHandling</font>
-      public class TransformationServiceImpl implements ... {
-        ...
-      }
-                </pre>
-              </code>
           </section>
-
 <!--
 Inhalt:
   - Warum sind Exceptions ein Problem?
