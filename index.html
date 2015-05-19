@@ -168,13 +168,6 @@
                   <li>die Businesslogik bleibt somit frei von Effekten bzw. technischen Belangen</li>
               </ul>
           </section>
-<!--
-Inhalt:
-  - Warum sind Exceptions ein Problem?
-  - Was gibt es für Alternativen?
-  - Option + Beispiel
-  - Either + Beispiel
--->
 
         <section>
           <h2>Fehlerbehandlung ohne Exceptions</h2>
@@ -182,18 +175,12 @@ Inhalt:
 
         <section>
           <h3>Probleme mit Exceptions</h3>
-          <p>
-            Exceptions sind kontextsensitiv:
-            <pre><code>
-              def x = throw new Exception
-              val y = try {
-                x
-              } catch {
-                _: Exception => 42
-              }
-            </code></pre>
-          </p>
-        </section>
+          <ul>
+            <li>sind unsichtbar im Quelltext</li>
+            <li>wie GOTO nur ohne TO -> zu viele Ausstiegspunkte</li>
+            <li>können zur Steuerung des Kontrollflusses missbraucht werden</li>
+          </ul>
+        </section
 
         <section>
           <h3>Idee: Fehler als Werte repräsentieren</h3>
