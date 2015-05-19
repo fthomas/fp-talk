@@ -272,18 +272,22 @@
           <h3>Zufallszahlen mit Rng</h3>
           <p><code>Rng[Double]</code> repräsentiert einen zufälligen <code>Double</code></p>
 
-          <pre class="fragment"><code>
+          <pre><code>
     val d1: Rng[Double] = Rng.double // und
     val d2: Rng[Double] = Rng.double // sind gleichbedeutend
           </code></pre>
 
-          <div class="fragment">
-            <p>Auf <code>Rng</code>-Werten können Funktionen ausgeführt werden:</p>
-            <pre><code>
-    val positiveDouble: Rng[Double] =
-      Rng.double.map(d => if (d < 0) -d else d)
-            </code></pre>
-          </div>
+          <pre><code>
+    Rng.seetseed(7).flatMap(_ => d1).run.unsafePerformIO() //
+    Rng.seetseed(7).flatMap(_ => d2).run.unsafePerformIO() //
+          </code></pre>
+          
+          <aside class="notes">
+            <ul>
+              <li>run wandelt Rng in IO um; wenn IO ausgeführt wird, wird Systemzeit als Seed verwendet</li>
+              <li>unsafePerformIO() produziert ein Seiteneffekt</li>
+            </ul>
+          </aside>
         </section>
 
           <section>
