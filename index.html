@@ -278,8 +278,11 @@
           </code></pre>
 
           <pre><code>
-    Rng.seetseed(7).flatMap(_ => d1).run.unsafePerformIO() // 0.7306990420600421
-    Rng.seetseed(7).flatMap(_ => d2).run.unsafePerformIO() // 0.7306990420600421
+    Rng.seetseed(7).flatMap(_ => d1).run.unsafePerformIO()
+    // 0.7306990420600421
+    
+    Rng.seetseed(7).flatMap(_ => d2).run.unsafePerformIO()
+    // 0.7306990420600421
           </code></pre>
           
           <aside class="notes">
@@ -292,7 +295,7 @@
 
         <section>
           <h3>Demo mit Rng</h3>
-        </section
+        </section>
 
         <section>
           <h3>Was sind die Vorteile funktionaler Programmierung?</h3>
