@@ -278,34 +278,38 @@
           </code></pre>
 
           <pre><code>
-    Rng.seetseed(7).flatMap(_ => d1).run.unsafePerformIO() //
-    Rng.seetseed(7).flatMap(_ => d2).run.unsafePerformIO() //
+    Rng.seetseed(7).flatMap(_ => d1).run.unsafePerformIO() // 0.7306990420600421
+    Rng.seetseed(7).flatMap(_ => d2).run.unsafePerformIO() // 0.7306990420600421
           </code></pre>
           
           <aside class="notes">
             <ul>
-              <li>run wandelt Rng in IO um; wenn IO ausgeführt wird, wird Systemzeit als Seed verwendet</li>
+              <li>run wandelt Rng in IO um</li>
               <li>unsafePerformIO() produziert ein Seiteneffekt</li>
             </ul>
           </aside>
         </section>
 
-          <section>
-              <h4>Was sind die Vorteile funktionaler Programmierung?</h4>
-              <ul>
-                  <li>Designvorteile durch separation of concerns</li>
-                  <li>einfach zu testen</li>
-                  <li>einfach zu parallelisieren</li>
-                  <li>...</li>
-              </ul>
-          </section>
+        <section>
+          <h3>Demo mit Rng</h3>
+        </section
 
-          <section>
-              <h4>Was sind die Nachteile?</h4>
-              <ul>
-                  <li>Paradigmenwechsel erfordert ein Umdenken</li>
-              </ul>
-          </section>
+        <section>
+          <h3>Was sind die Vorteile funktionaler Programmierung?</h3>
+          <ul>
+            <li>Designvorteile durch separation of concerns</li>
+            <li>einfach zu testen</li>
+            <li>einfach zu parallelisieren</li>
+            <li>...</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Was sind die Nachteile?</h3>
+          <ul>
+            <li>Paradigmenwechsel erfordert ein Umdenken</li>
+          </ul>
+        </section>
 
         <section style="text-align: left;">
           <h1>THE END</h1>
@@ -313,6 +317,7 @@
             - Slides: <a href="http://fthomas.github.io/fp-talk">http://fthomas.github.io/fp-talk</a><br />
             - Code: <a href="https://github.com/fthomas/fp-talk">https://github.com/fthomas/fp-talk</a><br />
             - <a href="http://www.manning.com/bjarnason/">Functional Programming in Scala</a><br />
+            - <code>IO</code>: <a href="https://github.com/scalaz/scalaz">https://github.com/scalaz/scalaz</a>
             - <code>Rng</code>: <a href="https://github.com/NICTA/rng">https://github.com/NICTA/rng</a>
           </p>
         </section>
@@ -321,10 +326,9 @@
 
 Option führt heile Welt ein
 auch IOs können kombiniert werden: bei Fehlerbehandlung verzögern
-warum either: schwachstelle von option : keine info was schief lief
-bei d1 d2 mit dem selben seed reingehen
+
 rng beispiel noch pimpen
-run erklären
+
 
 reich Kontext in logik rein (logik wird verschmutzt)
 reich logik in kontext rein
