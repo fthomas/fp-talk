@@ -1,9 +1,7 @@
 import java.util.Random
 import com.nicta.rng.Rng
 
-///
-// Zufall als Seiteneffekt und ohne einfache Möglichkeit wiederholbar
-// zu testen.
+// Zufall als Seiteneffekt; nicht einfach testbar
 
 def rollDie0(): Int =
   new Random().nextInt(6) + 1
@@ -16,12 +14,9 @@ def useResult0(): Double = {
   if (res > 6) res * 1.2 else res * 0.9
 }
 
-// Seiteneffekt + keine einfache Möglichkeit ein Seed vorzugeben
-useResult0()
+useResult0() // zufälliges Ergebnis
 
-///
-// immer noch Seiteneffekte, dafür kann deterministisch getestet werden
-// Nachteil: Logik und "Dependency Injection" wird kombiniert
+// Zufall als Seiteneffekt; einfach testbar
 
 def rollDie1(r: Random): Int =
   r.nextInt(6) + 1
@@ -34,12 +29,12 @@ def useResult1(r: Random): Double = {
   if (res > 6) res * 1.2 else res * 0.9
 }
 
-useResult1(new Random)
+useResult1(new Random()) // zufälliges Ergebnis
 val r = new Random()
 r.setSeed(3)
-useResult1(r)
+useResult1(r) // konstantes Ergebnis
 
-///
+// keine Seiteneffekte; einfach testbar
 
 val rollDie2: Rng[Int] =
   Rng.chooseint(1, 7)
@@ -52,5 +47,5 @@ val rollDieTwice2: Rng[Int] = for {
 val useResult2: Rng[Double] =
   rollDieTwice2.map(res => if (res > 6) res * 1.2 else res * 0.9)
 
-useResult2.run.unsafePerformIO()
-Rng.setseed(2).flatMap(_ => useResult2).run.unsafePerformIO()
+useResult2.run.unsafePerformIO()  // zufälliges Ergebnis 
+Rng.setseed(2).flatMap(_ => useResult2).run.unsafePerformIO() // konstantes Ergebnis
