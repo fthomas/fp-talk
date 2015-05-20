@@ -254,7 +254,8 @@
           <h3>Either[A, B]</h3>
           <p>Ist entweder ein <code>A</code> oder ein <code>B</code>.</p>
           <p class="fragment">Vorteil gegenüber <code>Option</code>: Fehlerursache kann zurückgegeben werden</p>
-          <pre class="fragment"><code>def safeToInt(s: String): Either[NumberFormatException, Int] = ...</code></pre>
+          <pre class="fragment"><code>def safeToInt(s: String): Either[NumberFormatError, Int] = ...
+safeToInt("120").right.map(i => i + 1)</code></pre>
         </section>
 
         <section>
